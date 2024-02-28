@@ -1,3 +1,5 @@
+import random
+
 from aiogram import Bot, Dispatcher
 from aiogram.filters import Command, CommandStart
 from aiogram.types import BotCommand, Message
@@ -5,6 +7,7 @@ from aiogram.types import BotCommand, Message
 import httplib2
 import googleapiclient.discovery
 from oauth2client.service_account import ServiceAccountCredentials
+from random import choice
 
 BOT_TOKEN = '7023815986:AAGqZLAIqYsFG30fsN2FLvVka8EPGK6mCNY'
 
@@ -32,10 +35,25 @@ del valuess['range']
 del valuess['majorDimension']
 tea_all_table = list(valuess.values())
 tea_all_table = tea_all_table[0]
+print(tea_all_table[1])
+print(len(tea_all_table[1]))
 
 
 # словарь для хранения данных пользователя
 # users = {}
+
+# хендлер для /reset_table
+@dp.message(Command(commands='reset_table'))
+async def process_reset_table_command(message: Message):
+    valuess = service.spreadsheets().values().get(
+        spreadsheetId=spreadsheet_id,
+        range='A1:F150',
+        majorDimension='COLUMNS'  # COLUMNS - В СПИСКАХ КОЛОНКИ // ROWS - В СПИСКАХ СТРОКИ
+    ).execute()
+    del valuess['range']
+    del valuess['majorDimension']
+    tea_all_table = list(valuess.values())
+    tea_all_table = tea_all_table[0]
 
 
 # хендлер для /name_tea
@@ -51,6 +69,25 @@ async def process_help_command(message: Message):
     await message.answer(f'Заглушка, здесь будет ПОМОЩЬ\n'
                          f'/name_tea - Отправляет названия всех чайов\n'
                          f'/green_tea - Полный список всех ЗЕЛЕНЫХ чайов\n')
+
+
+
+
+
+# хендлер для /random_tea
+@dp.message(Command(commands='random_tea'))
+async def process_random_tea_command(message: Message):
+    a = random.choice(tea_all_table[1])
+    b = 0
+    c = ''
+    for i in range(0, len(tea_all_table[1])):
+        if tea_all_table[1][i] == a:
+            b = i
+            break
+    print(a)
+    await message.answer(f'Название:\n    {tea_all_table[1][b]}\n\n'
+                         f'Сорт:\n    {tea_all_table[4][b]}\n\n'
+                         f'Описание:\n    {tea_all_table[2][b]}\n\n')
 
 
 # хендлер для /start
@@ -76,34 +113,37 @@ async def process_start_command(message: Message):
         }
     '''
 
+
 # хендлер для /green_tea
 @dp.message(Command(commands='green_tea'))
-async def process_tea_command(message: Message):
-    for i in range(len(tea_all_table[1])):
-        if tea_all_table[5][i] == 'Зелёный':
+async def process_green_tea_command(message: Message):
+    for i in range(len(tea_all_table[4])):
+        if tea_all_table[4][i] == 'Зелёный':
             await message.answer(f'{tea_all_table[1][i]}')
+
 
 # хендлер для /black_tea
 @dp.message(Command(commands='black_tea'))
-async def process_tea_command(message: Message):
-    for i in range(len(tea_all_table[1])):
-        if tea_all_table[5][i] == 'Чёрный чай':
+async def process_black_tea_command(message: Message):
+    for i in range(len(tea_all_table[4])):
+        if tea_all_table[4][i] == 'Чёрный чай':
             await message.answer(f'{tea_all_table[1][i]}')
 
-# хендлер для /black_tea
+
+# хендлер для /fruit_tea
 @dp.message(Command(commands='fruit_tea'))
-async def process_tea_command(message: Message):
-    for i in range(len(tea_all_table[1])):
-        if tea_all_table[5][i] == 'Фруктовый':
+async def process_fruittea_command(message: Message):
+    for i in range(len(tea_all_table[4])):
+        if tea_all_table[4][i] == 'Фруктовый':
             await message.answer(f'{tea_all_table[1][i]}')
 
-# хендлер для /black_tea
+
+# хендлер для /ulugh_tea
 @dp.message(Command(commands='ulugh_tea'))
-async def process_tea_command(message: Message):
-    for i in range(len(tea_all_table[1])):
-        if tea_all_table[5][i] == 'Улун':
+async def process_ulugh_tea_command(message: Message):
+    for i in range(len(tea_all_table[4])):
+        if tea_all_table[4][i] == 'Улун':
             await message.answer(f'{tea_all_table[1][i]}')
-
 
 
 # хендлер на остальные сообщения
@@ -121,6 +161,8 @@ async def set_main_menu(bot: Bot):
     main_menu_commands = [
         BotCommand(command='/start',
                    description='Запускает бота'),
+        BotCommand(command='/reset_table',
+                   description='Обновление таблицы'),
         BotCommand(command='/name_tea',
                    description='Отправляет названия всех чайов'),
         BotCommand(command='/help',
@@ -133,6 +175,8 @@ async def set_main_menu(bot: Bot):
                    description='Полный список всех ФРУКТОВЫХ чайов'),
         BotCommand(command='/ulugh_tea',
                    description='Полный список всех "УЛУН" чайов'),
+        BotCommand(command='/random_tea',
+                   description='Случайный из всех чайов'),
     ]
     await bot.set_my_commands(main_menu_commands)
 
