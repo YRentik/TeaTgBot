@@ -123,6 +123,7 @@ async def process_green_tea_command(message: Message):
                          f'Описание:\n    {tea_all_table[2][b12]}\n\n')
 
 # хендлер для рандомного чая зеленый
+
 @dp.message(F.text == 'Рандомный Зеленый чай')
 async def process_green_tea_command(message: Message):
     a12 = []
