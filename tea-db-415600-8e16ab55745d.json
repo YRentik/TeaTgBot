@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tea-db-415600",
+  "private_key_id": "8e16ab55745d2af2ec642e601da9b217a23b1019",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCynjkF1YufrEwI\n011WmEiejThslaq370IeV6dR5TGTzv6ICwL/ljeQOC/umqvM1tFJWIRMDU2Tw2Ir\n+dh/sPPRjiZ7eDUgucqZns4J9+es9dX+MBAl9IZvT7KhIHGF/lhDKN3gMRY2aC01\n0gl+bQ+qUCk4lODkCf4F0YL5e13xzzzEqZWzh/2+bpgde9FsYnz1l//k/m4wH7IY\nXVCrkEU1dFuOrRMtwfpfjk2U2slJodVEac+4RjxgCpgtHWchiXOAwClMumHx5m7W\ni6mnuaqf02lMjJ0yKfoCu9FQ65PUVEg8gVegqLaqQjEKPGB96rEw+rMvJDSJE9sz\nS6Crsm0jAgMBAAECggEAD5ta7iiSMkRywalTlC0Vg00MQL30acKXwLZLTLuS+7rw\nFeD9xRP8t4xBRpRF2KMYgakgqNMsvnF+/XVaNmYMF85XjHLyFBxHwz59+vRUo5Hj\naHoN9H22Krmy/k3VvYMoy812qDqBxK/mQLf2fmZ3IkbYzd8sUKCS4ofuQsWbGCAB\nhY3zfy1GHwwz5y2TUSvgYu5zocQHLBjMo9B4ONLrXjYrHlvwY6N4ou307LT3z8LO\nBIT25k85bVPMTQfGOQEGiSrsp1WKTcb+y8wSbOxHDimPRXo3fqGiVT5T0vt6/wtL\nhGijEZlwp8c2F7CW50ajCMM4cyQpErTbDuJdg6R+cQKBgQDvYiDdxRTBUutIr6yy\n5GC6/8y2kgNjtooLanOq/I72d8sKYPAs8LGbzzSOfDeu6khAw7mqmf7NNV39t77/\nAauGW8f+rS5CjFdTtV+/JRACufqZ0wFu02r6Flj3Ett+moS61j6fQy0wQp0t4Fy7\ncT2Xo8sjn3cqHlomLI8PKVKqWQKBgQC/BEnBbuKVrtcXTmOrUiwokYLtZj/FdWX9\n26B6KCqP+cBx7KTMoEmBhU/A+VkP4PRByFZXm86mrnTqp0HMdD7PMqTIisuThy3j\n2k3O1ngutfCHoYiTFYMnu1vvXAgn8vBqcBqZB+DJe8h0c80jy9vGDZleqrIVNjqp\n9z/dwxPr2wKBgQCu05S7Qm75DczmBd7zu5TlnWHtyE+PaEYDNliJfPAQEscHqmpd\n999OspJoqVGlflcMbaVQci1Dw4EEhkiIRrj1ZFx4pBQP6Bzy9piZqcC6rQbXhuIa\nBW+we9e3gl8pZEIhjcyoVdBP2aafVaeEAZ0A/U+jkZfe+9HM5WgJo51K6QKBgBoz\n3mI4ccCSsVKzIBz6MrCF9W3XXtwZVJpULFlVdTE2011NVvXy7uJjhSM1kTAKbbcw\nYhe2ecyHleYyd2YydAM8MTqJP4/HNVZSNeYvqWDO+GXClNeIVet3Wg8lksDYJH6V\nTjC70ewRnNfMotFMP6OVbfp8c91RCQ8TqaEkB3GNAoGASaVE1wDjpdLv9dMMtYlx\nFj8M+cYT8gZUieq4bAS3oSgxnKy5dpLHmqnqOPAnWg023qgomzkVi9DqQlDKk27Q\nd7Z7C1A/7hMuk680U7nlHc5NZtfWJi9w4TvJSDdVQSCeePdXc/jCyQitdk9zVXii\nF6cNzn09/WBDw1qO4udQ95o=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tea-db-account@tea-db-415600.iam.gserviceaccount.com",
+  "client_id": "111211496285786571914",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tea-db-account%40tea-db-415600.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
