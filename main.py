@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command, CommandStart
-from aiogram.types import BotCommand, Message, KeyboardButton, ReplyKeyboardMarkup # , ReplyKeyboardRemove
+from aiogram.types import BotCommand, Message, KeyboardButton, ReplyKeyboardMarkup, URLInputFile, FSInputFile
 
 
 import httplib2
@@ -27,7 +27,7 @@ service = googleapiclient.discovery.build('sheets', 'v4', http=httpAuth)
 
 valuess = service.spreadsheets().values().get(
     spreadsheetId=spreadsheet_id,
-    range='A1:F50',
+    range='A1:J50',
     majorDimension='COLUMNS'  # COLUMNS - В СПИСКАХ КОЛОНКИ // ROWS - В СПИСКАХ СТРОКИ
 ).execute()
 
@@ -311,7 +311,8 @@ async def process_random_tea_command(message: Message):
     await message.answer(
         text=f'Название:\n    {tea_all_table[1][b]}\n\n'
              f'Сорт:\n    {tea_all_table[4][b]}\n\n'
-             f'Описание:\n    {tea_all_table[2][b]}\n\n',
+             f'Описание:\n    {tea_all_table[2][b]}\n\n'
+             f'Номер:\n     {tea_all_table[5][b]}',
         reply_markup=six_keyboard
     )
 # хендлер для 'Рандомные Все чаи' 2
@@ -590,7 +591,8 @@ async def process_oolong_tea_command(message: Message):
 async def process_rooibos_tea_command(message: Message):
     for i in range(len(tea_all_table[4])):
         if tea_all_table[4][i] == 'Ройбуш':
-            await message.answer(f'{tea_all_table[1][i]}')
+            await message.answer(f'{tea_all_table[1][i]}\n')
+           
 
 # хендлер для 'Черный чай'
 @dp.message(F.text == 'Ройбуш чай')
@@ -602,6 +604,12 @@ async def process_rooibos_tea_command(message: Message):
                          "богу рандома?\n(0_-)",
                     reply_markup=tree_keyboard_rooibos
     )
+    '''image_from_fs = FSInputFile("/TeaPhoto/rooibos.jpg")
+    await message.answer_photo(
+        image_from_fs,
+        caption="Изображение по ссылке"
+    )
+'''
 
 # хендлер для рандомного чая черный
 @dp.message(F.text == 'Рандомный Ройбуш чай')
